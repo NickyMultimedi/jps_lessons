@@ -1,12 +1,16 @@
 package be.multimed.jpa.helloworld;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
 public class Message implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String message;
 
@@ -18,7 +22,6 @@ public class Message implements Serializable {
         this.message = message;
     }
 
-    @Id
     public int getId() {
         return id;
     }
