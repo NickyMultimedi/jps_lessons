@@ -7,6 +7,11 @@ import javax.persistence.Persistence;
 
 public class GetMessage {
     public static void main(String[] args) {
+        System.out.println(getMessage().getMessage());
+    }
+
+    public static Message getMessage() {
+        Message m;
         EntityManagerFactory factory = null;
         EntityManager manager = null;
         try {
@@ -17,6 +22,7 @@ public class GetMessage {
             transaction.begin();
 
             Message message = manager.find(Message.class, 1);
+            m = message;
             System.out.println(message.getMessage());
 
             transaction.commit();
@@ -28,5 +34,7 @@ public class GetMessage {
                 factory.close();
             }
         }
+
+        return m;
     }
 }

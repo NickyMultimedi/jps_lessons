@@ -7,6 +7,10 @@ import javax.persistence.Persistence;
 
 public class SaveMessage {
     public static void main(String[] args) {
+        saveMessage();
+    }
+
+    public static void saveMessage() {
         EntityManagerFactory emf = null;
         EntityManager manager = null;
         try {
