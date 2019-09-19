@@ -48,11 +48,9 @@ public class EntityHandlerImpl implements EntityHandler {
         manager.persist(o);
     }
 
-    //TODO een find methode schrijven. Hoe werkt dit?????
     @Override
-    @Deprecated
-    public void find(Class<Object> aClass, Object o) {
-        manager.find(aClass, o);
+    public <T> T find(Class<T> aClass, Object o) {
+        return manager.find(aClass, o);
     }
 
     @Override

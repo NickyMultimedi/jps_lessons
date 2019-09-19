@@ -15,7 +15,7 @@ public interface EntityHandler extends Closeable, AutoCloseable {
     void commitTransaction();
 
     void persist(Object o);
-    void find(Class<Object> aClass, Object o);
+    <T> T find(Class<T> aClass, Object o);
 
     @Override
     public void close();
