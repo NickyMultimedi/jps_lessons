@@ -1,11 +1,12 @@
 package be.multimed.jpa.bankieren;
 
+import java.math.BigDecimal;
 import java.util.Objects;
 
 public class BankTransaction {
     private BankAccount sender;
     private BankAccount recipient;
-    private double amount;
+    private BigDecimal amount;
 
     public BankTransaction() {
     }
@@ -13,7 +14,7 @@ public class BankTransaction {
     public BankTransaction(BankAccount sender, BankAccount recipient, double amount) {
         this.sender = sender;
         this.recipient = recipient;
-        this.amount = amount;
+        setAmount(amount);
     }
 
     public BankAccount getSender() {
@@ -33,11 +34,19 @@ public class BankTransaction {
     }
 
     public double getAmount() {
-        return amount;
+        return amount.doubleValue();
     }
 
     public void setAmount(double amount) {
-        this.amount = amount;
+        this.amount = new BigDecimal(amount);
+    }
+
+    public void transfer() throws NotEnoughFundsException {
+        if (amount.doubleValue() > sender.getSaldo().doubleValue()) {
+            throw new NotEnoughFundsException();
+        }
+        sender.pay(amount);
+        recipient.receive(amount);
     }
 
     @Override

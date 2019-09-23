@@ -1,9 +1,6 @@
 package be.multimed.jpa.handlers;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
+import javax.persistence.*;
 import java.io.Closeable;
 import java.io.IOException;
 
@@ -51,6 +48,16 @@ public class EntityHandlerImpl implements EntityHandler {
     @Override
     public <T> T find(Class<T> aClass, Object o) {
         return manager.find(aClass, o);
+    }
+
+    @Override
+    public <T> T find(Class<T> aClass, Object o, LockModeType type) {
+        return manager.find(aClass, o, type);
+    }
+
+    @Override
+    public void rollback() {
+        transaction.rollback();
     }
 
     @Override

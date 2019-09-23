@@ -29,6 +29,13 @@ public class BankAccount implements Serializable {
         this.saldo = saldo;
     }
 
+    public void fill(BankAccount account) {
+        setBic(account.getBic());
+        setSaldo(account.getSaldo());
+        setKaartNummer(account.getKaartNummer());
+        setNaam(account.getNaam());
+    }
+
     public String getIban() {
         return iban;
     }
@@ -67,6 +74,14 @@ public class BankAccount implements Serializable {
 
     public void setSaldo(BigDecimal saldo) {
         this.saldo = saldo;
+    }
+
+    public void receive(BigDecimal amount) {
+        this.saldo = saldo.add(amount);
+    }
+
+    public void pay(BigDecimal amount) {
+        this.saldo = saldo.subtract(amount);
     }
 
     @Override

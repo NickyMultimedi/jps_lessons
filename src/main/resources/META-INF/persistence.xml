@@ -33,7 +33,7 @@
             <property name="javax.persistence.jdbc.user" value="javaeewondelgem"/>
             <property name="javax.persistence.jdbc.password" value="java$$wond$lg$m2019"/>
 
-            <property name="javax.persistence.schema-generation.database.action" value="create"/>
+            <property name="javax.persistence.schema-generation.database.action" value="none"/>
 
             <property name="hibernate.show_sql" value="true"/>
         </properties>
