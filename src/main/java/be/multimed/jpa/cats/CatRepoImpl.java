@@ -5,6 +5,7 @@ import be.multimed.jpa.handlers.EntityHandlerImpl;
 import org.w3c.dom.Entity;
 
 public class CatRepoImpl implements CatRepo {
+    public static final String PERSISTENCE_UNIT_NAME = "course";
     @Override
     public Cat find(CatPK pk) {
         Cat cat;
@@ -21,7 +22,7 @@ public class CatRepoImpl implements CatRepo {
 
     @Override
     public CatPK save(Cat cat) {
-        try (EntityHandler handler = new EntityHandlerImpl("course")) {
+        try (EntityHandler handler = new EntityHandlerImpl(PERSISTENCE_UNIT_NAME)) {
             handler.beginTransaction();
 
             handler.persist(cat);

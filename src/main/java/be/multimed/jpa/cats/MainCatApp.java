@@ -6,7 +6,7 @@ public class MainCatApp {
     public static void main(String[] args) {
         Cat cat1 = new Cat(
                 "Siamees",
-                "Lupa Hervo",
+                "Lupin Hervo",
                 "Lupy",
                 "Nick",
                 "Mariakerke",
