@@ -10,7 +10,9 @@
 <!--        <class>be.multimed.jpa.visitors.Visitor</class>-->
 <!--        <class>be.multimed.jpa.demo.Message</class>-->
 <!--        <class>be.multimed.jpa.cats.Cat</class>-->
-        <class>be.multimed.jpa.people.Person</class>
+<!--        <class>be.multimed.jpa.people.Person</class>-->
+<!--        <class>be.multimed.jpa.music.Album</class>-->
+        <class>be.multimed.jpa.menus.Menu</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
 
         <properties>
