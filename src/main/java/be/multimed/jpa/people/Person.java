@@ -9,6 +9,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "PERSONS", indexes = {@Index(name = "LAST_NAME_INDEX", columnList = "LAST_NAME"), @Index(name = "BIRTHDAY_INDEX", columnList = "BIRTHDAY")})
+@SecondaryTable(name="URLS")
 public class Person implements Serializable {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "ID") long id;
     @Version @Column(name = "VERSION") long version;

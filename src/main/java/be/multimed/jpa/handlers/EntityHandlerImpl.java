@@ -61,6 +61,11 @@ public class EntityHandlerImpl implements EntityHandler {
     }
 
     @Override
+    public <T> T merge(T t) {
+        return manager.merge(t);
+    }
+
+    @Override
     public void close() {
         manager.close();
         factory.close();

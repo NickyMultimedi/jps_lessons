@@ -16,6 +16,7 @@ public interface EntityHandler extends Closeable, AutoCloseable {
     void commitTransaction();
 
     void persist(Object o);
+    <T> T merge(T t);
     <T> T find(Class<T> aClass, Object o);
     <T> T find(Class<T> aClass, Object o, LockModeType type);
 
