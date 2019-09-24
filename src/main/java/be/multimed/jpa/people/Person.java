@@ -1,5 +1,7 @@
 package be.multimed.jpa.people;
 
+import be.multimed.jpa.people.address.Address;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -21,6 +23,7 @@ public class Person implements Serializable {
     @Column(name = "COMMNT") @Lob @Basic(fetch = FetchType.LAZY) String comment;
     @Column(name = "MARRIED", columnDefinition = "BOOLEAN") boolean married;
     @Column(name = "HOMEPAGE", table = "URLS", length = 255) String homepage;
+    @Embedded Address address = new Address();
 
     public Person() {
     }
@@ -34,6 +37,18 @@ public class Person implements Serializable {
         this.comment = comment;
         this.married = married;
         this.homepage = homepage;
+    }
+
+    public Person(String firstName, String lastName, LocalDate birthday, GenderType gender, byte[] picture, String comment, boolean married, String homepage, Address address) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.birthday = birthday;
+        this.gender = gender;
+        this.picture = picture;
+        this.comment = comment;
+        this.married = married;
+        this.homepage = homepage;
+        this.address = address;
     }
 
     public Person(long id, long version, String firstName, String lastName, LocalDate birthday, GenderType gender, byte[] picture, String comment, boolean married, String homepage) {
@@ -51,10 +66,6 @@ public class Person implements Serializable {
 
     public long getId() {
         return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public long getVersion() {
@@ -138,6 +149,14 @@ public class Person implements Serializable {
         this.homepage = homepage;
     }
 
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -146,19 +165,19 @@ public class Person implements Serializable {
         return getId() == person.getId() &&
                 getVersion() == person.getVersion() &&
                 isMarried() == person.isMarried() &&
-                getAge() == person.getAge() &&
                 Objects.equals(getFirstName(), person.getFirstName()) &&
                 Objects.equals(getLastName(), person.getLastName()) &&
                 Objects.equals(getBirthday(), person.getBirthday()) &&
                 getGender() == person.getGender() &&
                 Arrays.equals(getPicture(), person.getPicture()) &&
                 Objects.equals(getComment(), person.getComment()) &&
-                Objects.equals(getHomepage(), person.getHomepage());
+                Objects.equals(getHomepage(), person.getHomepage()) &&
+                Objects.equals(getAddress(), person.getAddress());
     }
 
     @Override
     public int hashCode() {
-        int result = Objects.hash(getId(), getVersion(), getFirstName(), getLastName(), getBirthday(), getGender(), getComment(), isMarried(), getAge(), getHomepage());
+        int result = Objects.hash(getId(), getVersion(), getFirstName(), getLastName(), getBirthday(), getGender(), getComment(), isMarried(), getHomepage(), getAddress());
         result = 31 * result + Arrays.hashCode(getPicture());
         return result;
     }
@@ -175,8 +194,8 @@ public class Person implements Serializable {
                 ", picture=" + Arrays.toString(picture) +
                 ", comment='" + comment + '\'' +
                 ", married=" + married +
-                ", age=" + getAge() +
                 ", homepage='" + homepage + '\'' +
+                ", address=" + address +
                 '}';
     }
 }

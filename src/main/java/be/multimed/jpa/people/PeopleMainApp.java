@@ -1,10 +1,20 @@
 package be.multimed.jpa.people;
 
+import be.multimed.jpa.people.address.Address;
+
 import java.time.LocalDate;
 
 public class PeopleMainApp {
     public static void main(String[] args) {
         PersonRepo repo = new PersonRepoImpl();
+
+        Address addres = new Address(
+                "Trekweg",
+                "94",
+                "9030",
+                "Mariakerke",
+                "België"
+        );
 
         Person person1 = new Person(
                 "Nick",
@@ -14,7 +24,8 @@ public class PeopleMainApp {
                 null,
                 null,
                 true,
-                "www.milites-templi.be"
+                "www.milites-templi.be",
+                addres
         );
 
         repo.save(person1);
