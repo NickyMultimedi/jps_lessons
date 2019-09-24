@@ -13,7 +13,13 @@
 <!--        <class>be.multimed.jpa.people.Person</class>-->
 <!--        <class>be.multimed.jpa.music.Album</class>-->
 <!--        <class>be.multimed.jpa.menus.Menu</class>-->
-        <class>be.multimed.jpa.shop.customers.Customer</class>
+<!--        <class>be.multimed.jpa.shop.customers.Customer</class>-->
+<!--        <class>be.multimed.jpa.medical.MedicalFile</class>-->
+<!--        <class>be.multimed.jpa.medical.Patient</class>-->
+        <class>be.multimed.jpa.education.school.School</class>
+        <class>be.multimed.jpa.education.student.Student</class>
+        <class>be.multimed.jpa.company.StaffMember</class>
+        <class>be.multimed.jpa.company.Company</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
 
         <properties>

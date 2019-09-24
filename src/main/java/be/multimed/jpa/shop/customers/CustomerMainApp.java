@@ -23,6 +23,9 @@ public class CustomerMainApp {
 
         repo.save(customer);
         System.out.println(repo.find(1l));
+        Customer customer2 = repo.find(1l);
+        customer2.setName("BoeJa");
+        repo.save(customer2);
 
     }
 }
