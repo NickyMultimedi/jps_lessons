@@ -13,7 +13,7 @@ import java.util.Objects;
 public class Menu implements Serializable {
     @Id @Column(name = "Id") @GeneratedValue(strategy = GenerationType.IDENTITY) long id;
     @Column(name = "Title") String title;
-    @ElementCollection(fetch = FetchType.EAGER) Collection<Ingredient> ingredients = new ArrayList<>();
+    @ElementCollection(fetch = FetchType.EAGER) @CollectionTable(name = "MenuIngredients") Collection<Ingredient> ingredients = new ArrayList<>();
 
     public Menu() {
     }

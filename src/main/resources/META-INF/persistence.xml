@@ -12,7 +12,8 @@
 <!--        <class>be.multimed.jpa.cats.Cat</class>-->
 <!--        <class>be.multimed.jpa.people.Person</class>-->
 <!--        <class>be.multimed.jpa.music.Album</class>-->
-        <class>be.multimed.jpa.menus.Menu</class>
+<!--        <class>be.multimed.jpa.menus.Menu</class>-->
+        <class>be.multimed.jpa.shop.customers.Customer</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
 
         <properties>
